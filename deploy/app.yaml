@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-test-app-service
+  labels:
+    app: App
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    app: App
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: App
+  template:
+    metadata:
+      labels:
+        app: App
+    spec:
+      containers:
+      - name: app
+        image: creatiwww/workiz_test:latest
+        ports:
+        - name: webrequests
+          containerPort: 5000
