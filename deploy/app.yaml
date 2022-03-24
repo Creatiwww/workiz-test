@@ -34,3 +34,12 @@ spec:
         ports:
         - name: webrequests
           containerPort: 5000
+# Mount config map
+        volumeMounts:
+          - name: mnt
+            mountPath: /app/templates/index.html
+            subPath: file-from-cfgmap
+      volumes:
+      - name: mnt
+        configMap:
+          name: app-cfgmap

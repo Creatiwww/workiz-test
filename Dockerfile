@@ -2,11 +2,10 @@ FROM python:3.8-slim-buster
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-
+COPY requirements.txt ./
 RUN pip3 install -r requirements.txt
 
-COPY . .
+COPY main.py ./
 
 ENV FLASK_APP main.py
 
