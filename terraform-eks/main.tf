@@ -27,7 +27,3 @@ data "aws_subnet" "vpcsubnet" {
   for_each = toset(data.aws_subnets.vpcsubnets.ids)
   id       = each.value
 }
-
-# output "subnet_cidr_blocks" {
-#  value = [for s in data.aws_subnet.example : s.id]
-# }
