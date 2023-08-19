@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: creatiwww/workiz_test:latest
+        image: 985975962340.dkr.ecr.us-east-1.amazonaws.com/hello_devops:latest
         ports:
         - name: webrequests
           containerPort: 5000
